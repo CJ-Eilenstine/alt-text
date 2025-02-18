@@ -1,0 +1,34 @@
+@mixin site-nav-button() {
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  // border: 1px solid $primary-color;
+  box-shadow: 3px 3px 5px 0 rgba(0, 98, 152, 0.4);
+
+  color: $primary-color;
+  font-size: 18px;
+  padding: 0.3em 1em;
+  border-radius: 1rem;
+  overflow: hidden;
+  margin: 1.625rem;
+
+  position: relative;
+  isolation: isolate;
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background: $accent-color;
+
+    inset: 0;
+    scale: 0 1;
+    transform-origin: right;
+    transition: scale 450ms;
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    transform-origin: left;
+    scale: 1 1;
+  }
+}
